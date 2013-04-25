@@ -54,7 +54,7 @@ else
 	@echo firmware=\"3.0-1593\" >> $@
 endif
 ifneq ($(strip $(BETA)),)
-	@echo report_url=\"https://github.com/SynoCommunity/spksrc/issues\" >> $@
+	@echo report_url=\"https://bitbucket.org/jdel_/packages/issues\" >> $@
 	@echo beta=1 >> $@
 endif
 ifneq ($(strip $(HELPURL)),)
@@ -98,6 +98,11 @@ endif
 ifneq ($(strip $(SPK_ICON)),)
 	@echo package_icon=\"`convert $(SPK_ICON) -thumbnail 72x72 - | base64 -w0 -`\" >> $@
 endif
+ifneq ($(strip $(DEBUG)),)
+INSTALLER_OUTPUT = >> /root/$${PACKAGE}-$${SYNOPKG_PKG_STATUS}.log 2>&1
+else
+INSTALLER_OUTPUT = > $$SYNOPKG_TEMP_LOGFILE
+endif
 
 # Wizard
 DSM_WIZARDS_DIR = $(WORK_DIR)/WIZARD_UIFILES
@@ -139,7 +144,7 @@ $(create_target_dir)
 $(MSG) "Creating $@"
 echo '#!/bin/sh' > $@
 echo '. `dirname $$0`/installer' >> $@
-echo '`basename $$0` > $$SYNOPKG_TEMP_LOGFILE' >> $@
+echo '`basename $$0` $(INSTALLER_OUTPUT)' >> $@
 chmod 755 $@
 endef
 
@@ -208,6 +213,10 @@ ifeq ($(PUBLISH_FTP_PASSWORD),)
 	$(error Set PUBLISH_FTP_PASSWORD in local.mk)
 endif
 	curl -T "$(SPK_FILE_NAME)" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_FILE_NAME))
+	curl -T "$(WORK_DIR)/INFO" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV).nfo)
+	convert "$(SPK_ICON)" -thumbnail 72x72 "src/icon_publish.png"
+	curl -T "src/icon_publish.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV).png)
+	rm "src/icon_publish.png"
 endif
 
 

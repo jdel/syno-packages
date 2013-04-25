@@ -7,7 +7,7 @@ PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS = cross/openssl
 
-MAINTAINER = SynoCommunity
+MAINTAINER = Jdel.org
 HOMEPAGE   = http://haproxy.1wt.eu/
 COMMENT    = HAProxy is a free, very fast and reliable solution offering high availability, load balancing, and proxying for TCP and HTTP-based applications.
 LICENSE    = GNU GPL 2
