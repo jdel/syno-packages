@@ -7,7 +7,7 @@ Testing
 ----------
 
 Packages are available to test via my `package repository`_.
-Just download the SPKs from the web page or add ``http://packages.jdel.org/`` as a source in yout Synology Package Manager.
+Just download the SPKs from the web page or add ``http://packages.jdel.org/`` as a source in your Synology Package Manager.
 
 Bugs
 ----------
