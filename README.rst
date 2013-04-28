@@ -12,7 +12,7 @@ Just download the SPKs from the web page or add ``http://packages.jdel.org/`` as
 Bugs
 ----------
 
-Don't hesitate to contribute by reporting bugs in the `bug_tracker`_ and submitting patches as pull requests.
+Don't hesitate to contribute by reporting bugs in the `issue tracker`_ and submitting patches as pull requests.
 
 .. _issue tracker: https://github.com/SynoCommunity/spksrc/issues
 .. _SynoCommunity's repository: https://github.com/SynoCommunity/spksrc/issues
