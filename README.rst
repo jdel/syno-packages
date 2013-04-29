@@ -3,6 +3,14 @@ synology-packages
 These are my Synology Packages. This repo is based on `SynoCommunity's repository`_.
 For more information on how to use the framework, check out the original repo.
 
+Merges
+----------
+
+Some of the packages here are obsolete since they have been included in the `SynoCommunity's repository`_.
+So far, the following packages have been merged:
+
+* git / git-server
+
 Testing
 ----------
 
