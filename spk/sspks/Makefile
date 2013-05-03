@@ -2,6 +2,8 @@ SPK_NAME = sspks
 SPK_VERS = $(shell date +%Y%m%d)
 SPK_REV = 1
 SPK_ICON = src/sspks.png
+SCREEN1 = src/screen_1.png
+SCREEN2 = src/screen_2.png
 DSM_UI_DIR = app
 
 DEPENDS  =

@@ -214,9 +214,32 @@ ifeq ($(PUBLISH_FTP_PASSWORD),)
 endif
 	curl -T "$(SPK_FILE_NAME)" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_FILE_NAME))
 	curl -T "$(WORK_DIR)/INFO" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV).nfo)
-	convert "$(SPK_ICON)" -thumbnail 72x72 "src/icon_publish.png"
-	curl -T "src/icon_publish.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV).png)
-	rm "src/icon_publish.png"
+	convert "$(SPK_ICON)" -thumbnail 72x72 "src/icon_publish_72.png"
+	convert "$(SPK_ICON)" -thumbnail 120x120 "src/icon_publish_120.png"
+	curl -T "src/icon_publish_72.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_72.png)
+	curl -T "src/icon_publish_120.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_120.png)
+	rm "src/icon_publish_72.png"
+	rm "src/icon_publish_120.png"
+ifneq ($(SCREEN1),)
+	convert "$(SCREEN1)" -thumbnail '650>' "src/screen_1_publish.png"
+	curl -T "src/screen_1_publish.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_screen_1.png)
+	rm "src/screen_1_publish.png"
+endif
+ifneq ($(SCREEN2),)
+	convert "$(SCREEN2)" -thumbnail '650>' "src/screen_2_publish.png"
+	curl -T "src/screen_2_publish.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_screen_2.png)
+	rm "src/screen_2_publish.png"
+endif
+ifneq ($(SCREEN3),)
+	convert "$(SCREEN3)" -thumbnail '650>' "src/screen_3_publish.png"
+	curl -T "src/screen_3_publish.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_screen_3.png)
+	rm "src/screen_3_publish.png"
+endif
+ifneq ($(SCREEN4),)
+	convert "$(SCREEN4)" -thumbnail '650>' "src/screen_4_publish.png"
+	curl -T "src/screen_4_publish.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_screen_4.png)
+	rm "src/screen_4_publish.png"
+endif
 endif
 
 
