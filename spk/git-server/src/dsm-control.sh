@@ -42,18 +42,7 @@ daemon_status ()
     if [ -f ${DROPBEAR_PID_FILE} ] && kill -0 `cat ${DROPBEAR_PID_FILE}` > /dev/null 2>&1; then
         DROPBEAR_RUNNING=1
     fi
-    return 1
-=======
-    GITDAEMON_RUNNING=0
-    if [ -f ${PID_FILE} ] && kill -0 `cat ${PID_FILE}` > /dev/null 2>&1; then
-        GITDAEMON_RUNNING=1
-    fi
-    DROPBEAR_RUNNING=0
-    if [ -f ${DROPBEAR_PID_FILE} ] && kill -0 `cat ${DROPBEAR_PID_FILE}` > /dev/null 2>&1; then
-        DROPBEAR_RUNNING=1
-    fi
     [ ${GITDAEMON_RUNNING} -eq 1 -a ${DROPBEAR_RUNNING} -eq 1 ] || return 1
->>>>>>> upstream/develop
 }
 
 wait_for_status ()
