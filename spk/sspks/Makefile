@@ -15,6 +15,8 @@ DESCRIPTION_FRE = Un serveur de packages Synology tres simple, calqué sur le fo
 RELOAD_UI = yes
 DISPLAY_NAME = Simple SPK Server
 
+CHANGELOG = Fixed deppkgs logic, Added compatibility with DSM 4.1
+
 HOMEPAGE   = http://github.com/jdel/sspks.git
 LICENSE    = GPL
 
