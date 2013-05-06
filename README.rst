@@ -9,7 +9,7 @@ Merges
 Some of the packages here are obsolete since they have been included in the `SynoCommunity's repository`_.
 So far, the following packages have been merged:
 
-* git / git-server
+* git-server: This package will be available here until it is published on SynoCommunity
 
 Testing
 ----------
