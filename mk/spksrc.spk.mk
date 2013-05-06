@@ -54,7 +54,7 @@ else
 	@echo firmware=\"3.0-1593\" >> $@
 endif
 ifneq ($(strip $(BETA)),)
-	@echo report_url=\"https://bitbucket.org/jdel_/packages/issues\" >> $@
+	@echo report_url=\"https://github.com/jdel/syno-packages/issues\" >> $@
 	@echo beta=1 >> $@
 endif
 ifneq ($(strip $(HELPURL)),)
