@@ -5,7 +5,8 @@
  
  /* The default path. This will often get replaced by the shell */
 +#ifndef DEFAULT_PATH
- #define DEFAULT_PATH "/usr/bin:/bin"
+-#define DEFAULT_PATH "/usr/bin:/bin"
++#define DEFAULT_PATH "/usr/local/git-server/bin:/usr/local/git-server/sbin:/usr/local/git/bin:/usr/syno/bin:/usr/bin:/bin"
 +#endif
  
  /* Some other defines (that mostly should be left alone) are defined
