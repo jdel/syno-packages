@@ -54,6 +54,12 @@ downloads:
 	    (cd $${dl} && $(MAKE) download) ; \
 	done
 
+natives:
+	@for n in $(dir $(wildcard native/*/Makefile)) ; \
+	do \
+	    (cd $${n} && $(MAKE)) ; \
+	done
+
 .PHONY: toolchains kernel-modules
 toolchains: $(addprefix toolchain-,$(SUPPORTED_ARCHS))
 kernel-modules: $(addprefix kernel-,$(SUPPORTED_ARCHS))
@@ -68,9 +74,9 @@ setup: local.mk
 
 local.mk:
 	@echo "Creating local configuration \"local.mk\"..."
-	@echo "PUBLISH_METHOD=FTP" > $@
-	@echo "PUBLISH_REPO_URL=" >> $@
+	@echo "PUBLISH_METHOD=REPO" > $@
+	@echo "PUBLISH_REPO_URL=https://packages.synocommunity.com/" >> $@
 	@echo "PUBLISH_REPO_KEY=" >> $@
-	@echo "PUBLISH_FTP_URL=" >> $@
+	@echo "PUBLISH_FTP_URL=ftp://synocommunity.com/upload_spk" >> $@
 	@echo "PUBLISH_FTP_USER=" >> $@
 	@echo "PUBLISH_FTP_PASSWORD=" >> $@
