@@ -1,0 +1,15 @@
+bin:bin/shncat
+bin:bin/shncmp
+bin:bin/shnconv
+bin:bin/shncue
+bin:bin/shnfix
+bin:bin/shngen
+bin:bin/shnhash
+bin:bin/shninfo
+bin:bin/shnjoin
+bin:bin/shnlen
+bin:bin/shnpad
+bin:bin/shnsplit
+bin:bin/shnstrip
+bin:bin/shntool
+bin:bin/shntrim

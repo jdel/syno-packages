@@ -10,8 +10,9 @@ MAINTAINER = Jdel.org
 DESCRIPTION = A small tool that provides ability to mirror any parts of Debian and Ubuntu GNU/Linux distributions or any other apt sources which typically provided by open source developers.
 DISPLAY_NAME = Apt-Mirror
 
-SUPPORTED_ARCHS = quoriq bromolow cedarview x86 88f6281
+SUPPORTED_ARCHS = quoriq bromolow cedarview x86 armada370 armadaxp evansport 88f6281
 
+CHANGELOG = Recompiled for 88f6281 adding compatibility with 88f6282. Minor changes otherwise, see github for full list.
 WIZARDS_DIR = src/wizard/
 
 HOMEPAGE   = http://apt-mirror.github.io/

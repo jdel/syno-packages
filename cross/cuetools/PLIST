@@ -1,0 +1,4 @@
+bin:bin/cuebreakpoints
+bin:bin/cueconvert
+bin:bin/cueprint
+bin:bin/cuetag.sh
