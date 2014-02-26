@@ -15,7 +15,7 @@ DESCRIPTION_FRE = Un serveur de packages Synology tres simple, calqué sur le fo
 RELOAD_UI = yes
 DISPLAY_NAME = Simple SPK Server
 
-CHANGELOG = Fixed device list, replaced 88f6282 with 88f6281 as there is no toolchain for 88f6282
+CHANGELOG = Allow 88f6282 to use 88f6281 packages
 
 HOMEPAGE   = http://github.com/jdel/sspks.git
 LICENSE    = GPL
@@ -41,7 +41,7 @@ sspks_extra_install: $(STAGING_DIR)/share/sspks
 	install -m 755 -d $(STAGING_DIR)/app
 	install -m 644 src/app/config $(STAGING_DIR)/app/config
 	install -m 755 -d $(STAGING_DIR)/app/images
-	for size in 16 24 32 48; do \
+	for size in 16 24 32 48 64 72 256; do \
 		convert $(SPK_ICON) -thumbnail $${size}x$${size} \
 		        $(STAGING_DIR)/app/images/$(SPK_NAME)-$${size}.png ; \
 	done
