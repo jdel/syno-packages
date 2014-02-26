@@ -1,0 +1,4 @@
+bin:bin/gnu-cmp
+bin:bin/gnu-diff
+bin:bin/gnu-diff3
+bin:bin/gnu-sdiff

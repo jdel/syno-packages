@@ -1,0 +1,11 @@
+--- extension/Makefile.in	2014-02-11 16:07:20.503032679 +0100
++++ extension/Makefile.in	2014-02-11 16:07:55.879032664 +0100
+@@ -1194,7 +1194,7 @@
+ #
+ # Given the workaround in configure, this isn't strictly necessary, but
+ # we're leaving it in, in case of some other system needing it.
+-check-recursive all-recursive: check-for-shared-lib-support
++check-recursive all-recursive:
+ 
+ check-for-shared-lib-support:
+ 	@if ../gawk$(EXEEXT) --version | sed 1q | grep API > /dev/null; \

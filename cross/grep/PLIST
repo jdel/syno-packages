@@ -1,0 +1,3 @@
+bin:bin/gnu-egrep
+bin:bin/gnu-fgrep
+bin:bin/gnu-grep

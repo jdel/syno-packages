@@ -1,0 +1,8 @@
+bin:bin/gnu-find
+bin:bin/gnu-locate
+bin:bin/gnu-oldfind
+bin:bin/gnu-updatedb
+bin:bin/gnu-xargs
+lib:libexec/gnu-bigram
+lib:libexec/gnu-code
+lib:libexec/gnu-frcode
