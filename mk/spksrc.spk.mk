@@ -216,10 +216,13 @@ endif
 	curl -T "$(WORK_DIR)/INFO" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV).nfo)
 	convert "$(SPK_ICON)" -thumbnail 72x72 "src/icon_publish_72.png"
 	convert "$(SPK_ICON)" -thumbnail 120x120 "src/icon_publish_120.png"
+	convert "$(SPK_ICON)" -thumbnail 256x256 "src/icon_publish_256.png"
 	curl -T "src/icon_publish_72.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_72.png)
 	curl -T "src/icon_publish_120.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_120.png)
+	curl -T "src/icon_publish_256.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_256.png)
 	rm "src/icon_publish_72.png"
 	rm "src/icon_publish_120.png"
+	rm "src/icon_publish_256.png"
 ifneq ($(SCREEN1),)
 	convert "$(SCREEN1)" -thumbnail '650>' "src/screen_1_publish.png"
 	curl -T "src/screen_1_publish.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_screen_1.png)
