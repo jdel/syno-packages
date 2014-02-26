@@ -1,8 +1,8 @@
 PKG_NAME = db
-PKG_VERS = 4.6.21
+PKG_VERS = 4.8.30
 PKG_EXT = tar.gz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
-PKG_DIST_SITE = https://github.com/downloads/SynoCommunity/spksrc
+PKG_DIST_SITE = http://download.oracle.com/berkeley-db
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS = 
@@ -20,7 +20,7 @@ include ../../mk/spksrc.cross-cc.mk
 
 .PHONY: myConfigure
 myConfigure: 
-	$(RUN) ; cd build_unix ; ../dist/configure $(TC_CONFIGURE_ARGS) --prefix=$(INSTALL_DIR)/$(INSTALL_PREFIX) 
+	$(RUN) ; cd build_unix ; ../dist/configure $(TC_CONFIGURE_ARGS) --enable-cxx --prefix=$(INSTALL_DIR)/$(INSTALL_PREFIX)
 
 .PHONY: myCompile
 myCompile: 
