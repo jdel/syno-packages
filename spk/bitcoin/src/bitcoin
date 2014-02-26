@@ -1,0 +1,4 @@
+#!/bin/sh
+
+CWD=`dirname $0`
+`LD_LIBRARY_PATH=$CWD/../lib $CWD/bitcoin-cli $*`

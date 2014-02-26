@@ -1,0 +1,5 @@
+bin:bin/bitcoin-cli
+bin:bin/bitcoind
+lib:lib/libssp.so.0
+lib:lib/libdb-4.8.so
+lib:lib/libdb_cxx-4.8.so
