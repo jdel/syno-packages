@@ -41,7 +41,7 @@ myPostInstallX86:
 
 .PHONY: myPostInstallEvansport
 myPostInstallEvansport:
-	install -m 755 $(TC_PATH)../sys-root/lib/libssp.so.0 $(INSTALL_DIR)/usr/local/lib/
+	install -m 755 $(TC_PATH)../i686-pc-linux-gnu/sys-root/lib/libssp.so.0 $(INSTALL_DIR)/usr/local/lib/
 	cp -f $(WORK_DIR)/../../../cross/$(PKG_NAME)/PLIST.$(ARCH) $(WORK_DIR)/../../../cross/$(PKG_NAME)/PLIST
 
 .PHONY: myPostInstall
