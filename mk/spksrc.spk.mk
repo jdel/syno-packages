@@ -35,6 +35,18 @@ $(WORK_DIR)/package.tgz: strip
 	@[ -f $@ ] && rm $@ || true
 	(cd $(STAGING_DIR) && tar cpzf $@ *)
 
+$(WORK_DIR)/PACKAGE_ICON.PNG: $(SPK_ICON)
+	convert "$(SPK_ICON)" -thumbnail 72x72 "$(WORK_DIR)/PACKAGE_ICON.PNG"
+
+$(WORK_DIR)/PACKAGE_ICON_128.PNG: $(SPK_ICON)
+	convert "$(SPK_ICON)" -thumbnail 128x128 "$(WORK_DIR)/PACKAGE_ICON_128.PNG"
+
+$(WORK_DIR)/PACKAGE_ICON_144.PNG: $(SPK_ICON)
+	convert "$(SPK_ICON)" -thumbnail 144x144 "$(WORK_DIR)/PACKAGE_ICON_144.PNG"
+
+$(WORK_DIR)/PACKAGE_ICON_256.PNG: $(SPK_ICON)
+	convert "$(SPK_ICON)" -thumbnail 256x256 "$(WORK_DIR)/PACKAGE_ICON_256.PNG"
+
 $(WORK_DIR)/INFO: Makefile $(SPK_ICON)
 	$(create_target_dir)
 	@$(MSG) "Creating INFO file for $(SPK_NAME)"
@@ -176,12 +188,12 @@ $(DSM_SCRIPTS_DIR)/%: $(filter %.sh,$(ADDITIONAL_SCRIPTS))
 	@$(dsm_script_copy)
 
 
-SPK_CONTENT  = package.tgz INFO scripts
+SPK_CONTENT  = package.tgz INFO scripts PACKAGE_ICON.PNG PACKAGE_ICON_128.PNG PACKAGE_ICON_144.PNG PACKAGE_ICON_256.PNG
 ifneq ($(strip $(DSM_WIZARDS)),)
 SPK_CONTENT += WIZARD_UIFILES
 endif
 
-$(SPK_FILE_NAME): $(WORK_DIR)/package.tgz $(WORK_DIR)/INFO $(DSM_SCRIPTS) $(DSM_WIZARDS)
+$(SPK_FILE_NAME): $(WORK_DIR)/package.tgz $(WORK_DIR)/INFO $(DSM_SCRIPTS) $(DSM_WIZARDS) $(WORK_DIR)/PACKAGE_ICON.PNG $(WORK_DIR)/PACKAGE_ICON_128.PNG $(WORK_DIR)/PACKAGE_ICON_144.PNG $(WORK_DIR)/PACKAGE_ICON_256.PNG
 	$(create_target_dir)
 	(cd $(WORK_DIR) && tar cpf $@ --group=root --owner=root $(SPK_CONTENT))
 
@@ -214,15 +226,10 @@ ifeq ($(PUBLISH_FTP_PASSWORD),)
 endif
 	curl -T "$(SPK_FILE_NAME)" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_FILE_NAME))
 	curl -T "$(WORK_DIR)/INFO" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV).nfo)
-	convert "$(SPK_ICON)" -thumbnail 72x72 "src/icon_publish_72.png"
-	convert "$(SPK_ICON)" -thumbnail 120x120 "src/icon_publish_120.png"
-	convert "$(SPK_ICON)" -thumbnail 256x256 "src/icon_publish_256.png"
-	curl -T "src/icon_publish_72.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_72.png)
-	curl -T "src/icon_publish_120.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_120.png)
-	curl -T "src/icon_publish_256.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_256.png)
-	rm "src/icon_publish_72.png"
-	rm "src/icon_publish_120.png"
-	rm "src/icon_publish_256.png"
+	curl -T "$(WORK_DIR)/PACKAGE_ICON.PNG" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_72.png)
+	curl -T "$(WORK_DIR)/PACKAGE_ICON_128.PNG" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_128.png)
+	curl -T "$(WORK_DIR)/PACKAGE_ICON_144.PNG" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_144.png)
+	curl -T "$(WORK_DIR)/PACKAGE_ICON_256.PNG" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_thumb_256.png)
 ifneq ($(SCREEN1),)
 	convert "$(SCREEN1)" -thumbnail '650>' "src/screen_1_publish.png"
 	curl -T "src/screen_1_publish.png" -u $(PUBLISH_FTP_USER):$(PUBLISH_FTP_PASSWORD) $(PUBLISH_FTP_URL)/$(notdir $(SPK_NAME)_$(SPK_ARCH)_$(SPK_VERS)-$(SPK_REV)_screen_1.png)
