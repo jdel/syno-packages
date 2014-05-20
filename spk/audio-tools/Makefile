@@ -1,19 +1,19 @@
 SPK_NAME = audio-tools
-SPK_VERS = 1.0
+SPK_VERS = 1.1
 SPK_REV = 1
 SPK_ICON = src/audio-tools.png
 
 STARTABLE = no
 
-DEPENDS  = cross/cuetools cross/shntool
+DEPENDS  = cross/cuetools cross/shntool cross/lame
 SPK_DEPENDS = 
 
 SUPPORTED_ARCHS = 
 
 MAINTAINER = Jdel.org
-DESCRIPTION = Audio tools, contains cuetools and shntool with FLAC support.
+DESCRIPTION = Audio tools, contains cuetools, shntool with FLAC support, and LAME.
 DISPLAY_NAME = Audio Tools
-CHANGELOG = Initial release
+CHANGELOG = Added LAME
 
 HOMEPAGE = 
 LICENSE  = GNU GPL V2

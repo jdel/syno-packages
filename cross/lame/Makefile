@@ -14,5 +14,6 @@ LICENSE  = LGPL
 
 GNU_CONFIGURE = 1
 
-include ../../mk/spksrc.cross-cc.mk
+#CONFIGURE_ARGS = --disable-frontend
 
+include ../../mk/spksrc.cross-cc.mk
