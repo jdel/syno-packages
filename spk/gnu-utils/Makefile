@@ -1,20 +1,20 @@
 SPK_NAME = gnu-utils
-SPK_VERS = 1.3
-SPK_REV = 2
+SPK_VERS = 1.4
+SPK_REV = 1
 SPK_ICON = src/gnu-utils.png
 
 #STARTABLE = no
 #BETA=1
 
-DEPENDS  = cross/coreutils cross/findutils cross/diffutils cross/grep cross/which cross/tar cross/sed cross/gawk cross/gnu-screen cross/gnu-nano
+DEPENDS  = cross/procps cross/coreutils cross/findutils cross/diffutils cross/grep cross/which cross/tar cross/sed cross/gawk cross/gnu-screen cross/gnu-nano
 SPK_DEPENDS = "Perl>=5.18"
 
 SUPPORTED_ARCHS = 88f6281 armada370 armadaxp bromolow cedarview evansport qoriq x86
 
 MAINTAINER = Jdel.org
-DESCRIPTION = This packages contains utilities useful for system admins: GNU coreutils 8.22, nano 2.26, findutils 4.4.2, diffutils 3.3, grep 2.16, sed 4.2.2, gawk 4.1.0, tar 1.27, screen 4.0.3, rename 1.6 \(perl\). Add /usr/local/gnu-utils/bin to your PATH. Each file in this package is provided under its own license.
+DESCRIPTION = This packages contains utilities useful for system admins: GNU coreutils 8.22, nano 2.26, findutils 4.4.2, diffutils 3.3, grep 2.16, sed 4.2.2, gawk 4.1.0, tar 1.27, screen 4.0.3, rename 1.6 \(perl\), procps 3.2.8. Add /usr/local/gnu-utils/bin to your PATH. Each file in this package is provided under its own license.
 DISPLAY_NAME = GNU Utils \(and more\)
-CHANGELOG = Added rename and nano
+CHANGELOG = Added procps
 
 HOMEPAGE = http://www.gnu.org/
 LICENSE  = Various

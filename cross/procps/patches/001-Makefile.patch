@@ -1,0 +1,22 @@
+--- Makefile	2014-03-25 17:58:30.947325695 +0100
++++ Makefile	2014-03-25 17:59:04.047325675 +0100
+@@ -82,7 +82,9 @@
+ 
+ # Preprocessor flags.
+ PKG_CPPFLAGS := -D_GNU_SOURCE -I proc
++ifndef CPPFLAGS
+ CPPFLAGS     := -I/usr/include/ncurses
++endif
+ ALL_CPPFLAGS := $(PKG_CPPFLAGS) $(CPPFLAGS)
+ 
+ # Left out -Wconversion due to noise in glibc headers.
+@@ -106,7 +108,9 @@
+ ALL_CFLAGS   := $(PKG_CFLAGS) $(CFLAGS)
+ 
+ PKG_LDFLAGS  := -Wl,-warn-common
++ifndef LDFLAGS
+ LDFLAGS      :=
++endif
+ ALL_LDFLAGS  := $(PKG_LDFLAGS) $(LDFLAGS)
+ 
+ ############ Add some extra flags if gcc allows
