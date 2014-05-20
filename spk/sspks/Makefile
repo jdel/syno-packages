@@ -15,7 +15,7 @@ DESCRIPTION_FRE = Un serveur de packages Synology tres simple, calqué sur le fo
 RELOAD_UI = yes
 DISPLAY_NAME = Simple SPK Server
 
-CHANGELOG = Allow 88f6282 to use 88f6281 packages
+CHANGELOG = Added support for DSM 5.0
 
 HOMEPAGE   = http://github.com/jdel/sspks.git
 LICENSE    = GPL
