@@ -1,8 +1,8 @@
 PKG_NAME = libpng
-PKG_VERS = 1.5.10
+PKG_VERS = 1.6.10
 PKG_EXT = tar.xz
 PKG_DIST_NAME = $(PKG_NAME)-$(PKG_VERS).$(PKG_EXT)
-PKG_DIST_SITE = ftp://ftp.simplesystems.org/pub/libpng/png/src
+PKG_DIST_SITE = http://downloads.sourceforge.net/project/$(PKG_NAME)/$(PKG_NAME)16/$(PKG_VERS)
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 
 DEPENDS =

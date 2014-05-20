@@ -1,9 +1,9 @@
 PKG_NAME = giflib
-PKG_VERS = 4.1.6
+PKG_VERS = 4.2.3
 PKG_EXT = tar.bz2
 PKG_DIR = $(PKG_NAME)-$(PKG_VERS)
 PKG_DIST_NAME = $(PKG_DIR).$(PKG_EXT)
-PKG_DIST_SITE = http://downloads.sourceforge.net/project/giflib/giflib%204.x/$(PKG_DIR)
+PKG_DIST_SITE = http://downloads.sourceforge.net/project/$(PKG_NAME)/$(PKG_NAME)-4.x
 
 DEPENDS =
 
